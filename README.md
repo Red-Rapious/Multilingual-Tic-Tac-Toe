@@ -1,6 +1,13 @@
 # Multilingual-Tic-Tac-Toe
 Implementations of the Tic-Tac-Toe game and a simple AI in multiple languages.
 
+```
+ _____  ___   ___        _____  ___   ___        _____   ___   ___ 
+|_   _||_ _| / __|      |_   _|/   \ / __|      |_   _| / _ \ | __|
+  | |   | | | (__         | |  | - || (__         | |  | (_) || _| 
+  |_|  |___| \___|        |_|  |_|_| \___|        |_|   \___/ |___|
+```
+
 ## Available Languages
 - [Python](src/python)
 

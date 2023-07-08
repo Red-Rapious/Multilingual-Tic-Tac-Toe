@@ -44,6 +44,14 @@ def ask_position(player_number: int) -> tuple:
 
 if __name__ == "__main__":
     tictactoe = Game()
+
+    print("""
+ _____  ___   ___        _____  ___   ___        _____   ___   ___ 
+|_   _||_ _| / __|      |_   _|/   \ / __|      |_   _| / _ \ | __|
+  | |   | | | (__         | |  | - || (__         | |  | (_) || _| 
+  |_|  |___| \___|        |_|  |_|_| \___|        |_|   \___/ |___|
+""")
+          
     players = (choose_player_type(1), choose_player_type(2))
     winning = Cell.EMPTY
     turn = 0
