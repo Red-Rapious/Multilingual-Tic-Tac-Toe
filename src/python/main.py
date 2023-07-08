@@ -56,18 +56,18 @@ if __name__ == "__main__":
     winning = Cell.EMPTY
     turn = 0
 
-    while winning == Cell.EMPTY:
+    while winning == Cell.EMPTY and turn < 9:
         print("")
         print(tictactoe)
         print("")
 
-        match players[turn]:
+        match players[turn % 2]:
             case PlayerType.HUMAN:
                 correct_position = False
                 while not correct_position:
                     try:
                         x, y = ask_position(turn + 1)
-                        tictactoe.play(x, y, Cell.CROSS if turn == 0 else Cell.CIRCLE)
+                        tictactoe.play(x, y, Cell.CROSS if turn % 2 == 0 else Cell.CIRCLE)
                         correct_position = True
                     except CellOccupiedError:
                         print("The cell ", (x, y), "is occupied. Please choose an empty cell.")
@@ -77,6 +77,10 @@ if __name__ == "__main__":
                 exit()
 
         winning = tictactoe.winning_position()
-        turn = 1 - turn # changes 0 into 1 and 1 into 0
-    
-    print("\n--- Player", 2-turn, "won! ---")
+        turn += 1
+
+    print(tictactoe)
+    if turn == 9:
+        print("\n--- DRAW! ---")
+    else:
+        print("\n--- PLAYER", turn%2 + 1, "WON! ---")
