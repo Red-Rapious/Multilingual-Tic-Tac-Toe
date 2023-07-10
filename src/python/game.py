@@ -31,8 +31,11 @@ class Game:
             if self.board[i][0] == self.board[i][1] == self.board[i][2] != Cell.EMPTY:
                 return self.board[i][0]
             
+        # Diagonal \
         if self.board[0][0] == self.board[1][1] == self.board[2][2] != Cell.EMPTY:
                 return self.board[1][1]
+        
+        # Diagonal /
         if self.board[0][2] == self.board[1][1] == self.board[2][0] != Cell.EMPTY:
                 return self.board[1][1]
         

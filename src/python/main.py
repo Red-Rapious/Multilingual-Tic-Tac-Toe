@@ -65,7 +65,7 @@ if __name__ == "__main__":
                 correct_position = False
                 while not correct_position:
                     try:
-                        x, y = ask_position(turn + 1)
+                        x, y = ask_position(turn%2 + 1)
                         tictactoe.play(x, y, Cell.CROSS if turn % 2 == 0 else Cell.CIRCLE)
                         correct_position = True
                     except CellOccupiedError:
