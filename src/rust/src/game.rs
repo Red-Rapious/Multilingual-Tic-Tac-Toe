@@ -52,6 +52,12 @@ impl Game {
 
         Cell::EMPTY
     }
+
+    pub fn new() -> Self {
+        Game {
+            board: [[Cell::EMPTY; 3]; 3]
+        }
+    }
 }
 
 impl std::fmt::Display for Game {
@@ -77,13 +83,5 @@ impl std::fmt::Display for Game {
             }
         }
         write!(formatter, "{}", string)
-    }
-}
-
-impl Game {
-    pub fn new() -> Self {
-        Game {
-            board: [[Cell::EMPTY; 3]; 3]
-        }
     }
 }
