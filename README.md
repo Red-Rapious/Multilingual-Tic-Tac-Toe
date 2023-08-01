@@ -13,6 +13,12 @@ Implementations of the Tic-Tac-Toe game and a simple AI in multiple languages.
 - [Rust](src/rust): base game
 
 ## Running instructions
+### C
+Launch the following command at the root of the project:
+```console
+$ cd src/c && gcc main.c && ./main
+```
+
 ### Python
 ***Requirements:** Python 3.10 or higher (use of the `match` statement)*
 
