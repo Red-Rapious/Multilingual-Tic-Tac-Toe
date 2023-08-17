@@ -9,6 +9,7 @@ Implementations of the Tic-Tac-Toe game and a simple AI in multiple languages.
 ```
 
 ## Available Languages
+- [C](src/c): base game
 - [Python](src/python): base game
 - [Rust](src/rust): base game
 

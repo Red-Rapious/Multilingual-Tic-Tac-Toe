@@ -1,8 +1,8 @@
 #[derive(Copy, Clone, PartialEq)]
 pub enum Cell {
-    EMPTY,
-    CROSS,
-    CIRCLE,
+    Empty,
+    Cross,
+    Circle,
 }
 
 pub struct Game {
@@ -11,10 +11,10 @@ pub struct Game {
 
 impl Game {
     pub fn play(&mut self, x: usize, y: usize, player: Cell) -> Result<(), ()> {
-        assert!(player == Cell::CIRCLE || player == Cell::CROSS);
+        assert!(player == Cell::Circle || player == Cell::Cross);
 
         match self.board[y][x] {
-            Cell::EMPTY => Ok(self.board[y][x] = player),
+            Cell::Empty => Ok(self.board[y][x] = player),
             _ => Err(())
         }
     }
@@ -24,14 +24,14 @@ impl Game {
             // Horizontal alignment
             if self.board[0][i] == self.board[1][i] 
                && self.board[0][i] == self.board[2][i] 
-               && self.board[2][i] != Cell::EMPTY {
+               && self.board[2][i] != Cell::Empty {
                 return self.board[0][i]
             }
 
             // Vertical alignment
             if self.board[i][0] == self.board[i][1] 
                && self.board[i][0] == self.board[i][2] 
-               && self.board[i][2] != Cell::EMPTY {
+               && self.board[i][2] != Cell::Empty {
                 return self.board[i][0]
             }
         }
@@ -39,23 +39,23 @@ impl Game {
         // Diagonal \
         if self.board[0][0] == self.board[1][1] 
            && self.board[1][1] == self.board[2][2] 
-           && self.board[1][1] != Cell::EMPTY {
+           && self.board[1][1] != Cell::Empty {
             return self.board[1][1]
         }
 
         // Diagonal /
         if self.board[0][2] == self.board[1][1] 
            && self.board[1][1] == self.board[2][0] 
-           && self.board[1][1] != Cell::EMPTY {
+           && self.board[1][1] != Cell::Empty {
             return self.board[1][1]
         }
 
-        Cell::EMPTY
+        Cell::Empty
     }
 
     pub fn new() -> Self {
         Game {
-            board: [[Cell::EMPTY; 3]; 3]
+            board: [[Cell::Empty; 3]; 3]
         }
     }
 }
@@ -69,9 +69,9 @@ impl std::fmt::Display for Game {
             string += " ";
             for x in 0..3 {
                 match self.board[y][x] {
-                    Cell::EMPTY => string += " ",
-                    Cell::CROSS => string += "X",
-                    Cell::CIRCLE => string += "O"
+                    Cell::Empty => string += " ",
+                    Cell::Cross => string += "X",
+                    Cell::Circle => string += "O"
                 }
 
                 if x != 2 {

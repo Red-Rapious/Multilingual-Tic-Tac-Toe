@@ -4,8 +4,8 @@ use std::io;
 pub mod game;
 
 enum PlayerType {
-    HUMAN,
-    AI,
+    Human,
+    Ai,
 }
 
 fn choose_player_type(player_number: u8) -> PlayerType {
@@ -37,8 +37,8 @@ fn choose_player_type(player_number: u8) -> PlayerType {
     }
 
     match number_chosen {
-        1 => return PlayerType::HUMAN,
-        2 => return PlayerType::AI,
+        1 => return PlayerType::Human,
+        2 => return PlayerType::Ai,
         _ => panic!("number_chosen is different from 1 or 2")
     }
 }
@@ -110,22 +110,22 @@ fn main() {
 ");
 
     let players = [choose_player_type(1), choose_player_type(2)];
-    let mut winning = Cell::EMPTY;
+    let mut winning = Cell::Empty;
     let mut turn: usize = 0;
 
-    while winning == Cell::EMPTY && turn < 9 {
+    while winning == Cell::Empty && turn < 9 {
         println!("\n{}\n", tictactoe);
 
         match players[turn % 2] {
-            PlayerType::AI => {
+            PlayerType::Ai => {
                 panic!("AI not implemented yet.")
             },
-            PlayerType::HUMAN => {
+            PlayerType::Human => {
                 loop {
                     let (x, y) = ask_position(turn%2 + 1);
                     match tictactoe.play(x, y, {
-                        if turn % 2 == 0 { Cell::CIRCLE } 
-                        else { Cell::CROSS }
+                        if turn % 2 == 0 { Cell::Circle } 
+                        else { Cell::Cross }
                     }) {
                         Ok(()) => break,
                         Err(()) => println!("The cell ({x}, {y}) is occupied. Please choose an empty cell.")
